@@ -25,21 +25,26 @@ class P4AModBusDriver():
 
 if __name__=="__main__":
 
-    a=P4AModBusDriver("169.254.1.1")
-    print(a.get_ieee754_float(23))
-    print(a.get_ieee754_float(17))
-    print(a.get_ieee754_float(73))
-
-    print(a.get_integer(400))
-    print(a.get_integer(401))
-    print(a.get_integer(402))
-    a.write_output(600,0)
-    a.close()
-
-    # client=MBC("169.254.1.1", port=502)
+    # a=P4AModBusDriver("localhost",port=5020)
+    # print(a.get_ieee754_float(23))
+    # print(a.get_ieee754_float(17))
+    # print(a.get_ieee754_float(73))
     #
+    # print(a.get_integer(400))
+    # print(a.get_integer(401))
+    # print(a.get_integer(402))
+    # a.write_output(600,0)
+    # a.close()
+
+    client=MBC("localhost", port=5020)
+    # #
     # client.connect()
-    # answer=client.read_input_registers(73)
+    # answer=client.read_input_registers(253)
+    # print(answer.registers[0])
+    #
+    # client.write_registers(0,200)
+    # answer = client.read_input_registers(253)
+    # print(answer.registers[0])
     # print(int_to_floating_bin(answer.registers[0],NBit=16))
     #
     # answer = client.read_input_registers(400)
@@ -52,4 +57,4 @@ if __name__=="__main__":
     # #print(client.write_register(599,0))
     # time.sleep(2)
     #
-    # client.close()
+    client.close()
